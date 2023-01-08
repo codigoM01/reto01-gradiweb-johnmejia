@@ -1,38 +1,383 @@
-.App {
-  text-align: center;
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+@font-face {
+	font-family: Poppins-Medium;
+	src: url(/src/assets/fonts/Poppins-Medium.ttf);
+}
+@font-face {
+	font-family: Poppins-Light;
+	src: url(/src/assets/fonts/Poppins-Light.ttf);
+}
+@font-face {
+	font-family: PTSansNarrow-Regular;
+	src: url(/src/assets/fonts/PTSansNarrow-Regular.ttf);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.contentCard {
+	width: 90%;
+	max-width: 1000px;
+	padding: 40px 20px;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	background-color: rgb(234, 242, 252);
+	align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.creditCard {
+	width: 100%;
+	max-width: 500px;
+	position: relative;
+	transition: 2s ease all;
+	transform: rotateY(0deg);
+	transform-style: preserve-3d;
+	backface-visibility: hidden;
+	cursor: pointer;
+	z-index: 2;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.creditCard.active {
+	transform: rotateY(180deg);
 }
 
-.App-link {
-  color: #61dafb;
+.creditCard > div {
+	padding: 30px;
+	border-radius: 25px;
+	height: 318px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.creditCard .frontCard {
+	width: 100%;
+	background: url(./assets/images/new-frente-tarjeta-sin.png);
+	background-size: cover;
+}
+
+.data {
+	margin-top: 40%;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+.dataNumbers {
+	display: flex;
+	justify-content: space-between;
+}
+
+.numberCard {
+	color: white;
+	font-size: 30px;
+	text-transform: uppercase;
+}
+
+.nameCard,
+.expirationDate {
+	color: white;
+	font-size: 19px;
+	text-transform: uppercase;
+}
+
+.contentData2 {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 30px;
+}
+
+.creditCard .backCard {
+	width: 100%;
+	background: url(./assets/images/new-atras-tarjeta-sin.png);
+	background-size: cover;
+	position: absolute;
+	top: 0;
+	transform: rotateY(180deg);
+	backface-visibility: hidden;
+}
+
+.ccvNumber {
+	color: white;
+	margin-top: 70px;
+	text-align: right;
+	margin-right: 30px;
+}
+
+.cardForm {
+	background: #efefef;
+	padding: 170px 120px 40px 120px;
+	width: 100%;
+	max-width: 900px;
+	border-radius: 20px;
+	position: relative;
+	top: -220px;
+	z-index: 1;
+}
+
+.cardForm label {
+	display: block;
+	color: #021f59;
+	font-size: 17px;
+	font-family: PTSansNarrow-Regular;
+	margin-bottom: 5px;
+	margin-top: 20px;
+}
+
+.cardForm input,
+.cardForm select {
+	font-size: 17px;
+	height: 35px;
+	border-radius: 5px;
+	padding: 5px;
+	width: 100%;
+}
+
+.cardForm input {
+	text-transform: uppercase;
+}
+
+.cardForm .numbersGroup {
+	display: flex;
+	justify-content: space-between;
+}
+
+.boxNumbers {
+	width: 20%;
+}
+
+.cardForm .dataGroup3 {
+	display: flex;
+	justify-content: space-between;
+}
+
+.cardForm .expiration {
+	width: 25%;
+}
+
+.groupSelect {
+	width: 45%;
+}
+
+.cardForm .contentSubmit {
+	text-align: center;
+	border-radius: 10px;
+}
+
+.cardForm .submitButton {
+	border: none;
+	padding: 10px;
+	font-size: 20px;
+	background: #021f59;
+	color: white;
+	cursor: pointer;
+	margin-top: 20px;
+	width: 200px;
+	border-radius: 10px;
+	text-transform: none;
+}
+.submitButtonHidden {
+	border: none;
+	padding: 10px;
+	font-size: 20px;
+	background: #6d8bc7;
+	color: white;
+	cursor: pointer;
+	margin-top: 20px;
+	width: 100%;
+	border-radius: 10px;
+	text-transform: none;
+}
+
+.cardForm .submitButton:hover {
+	background: #173e8a;
+}
+
+.cardNumber01 {
+	/* font-family: Poppins-Medium; */
+	font-family: Poppins-Light;
+	font-size: 40px;
+	color: rgb(212, 216, 219);
+}
+
+.ccvGroup {
+	width: 15%;
+}
+
+.contentTable {
+	/* background: rgb(234, 242, 252); */
+	width: 90%;
+	max-width: 1000px;
+	padding: 40px 20px;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	background-color: rgb(234, 242, 252);
+	align-items: center;
+}
+
+.Table {
+	margin-left: 20px;
+	margin-right: 20px;
+	width: 95%;
+}
+
+.rowTable {
+	background-color: #d96704;
+	height: 40px;
+	color: #fff;
+	font-family: Poppins-Light;
+	border-radius: 5px;
+}
+
+.titleTable {
+	border-radius: 10px;
+	padding-left: 20px;
+	font-size: 20px;
+	width: 500px;
+	text-align: left;
+}
+
+.colTable {
+	width: 4%;
+	height: 35px;
+	font-size: 13px;
+	border-style: groove;
+	border-color: #79b4d9;
+	padding-left: 20px;
+	padding-right: 5px;
+	border-radius: 10px;
+	text-transform: uppercase;
+}
+
+.col-tabla-regtarea2 {
+	width: 15%;
+	height: 40px;
+	font-size: 13px;
+	border-style: groove;
+	border-color: #79b4d9;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+@media only screen and (max-width: 850px) {
+	.cardForm {
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+	.cardForm .expiration {
+		width: 60%;
+	}
+
+	.titleTable {
+		padding-left: 10px;
+		font-size: 17px;
+	}
+	.colTable {
+		height: 30px;
+		font-size: 12px;
+		padding: 5px;
+	}
+}
+
+@media only screen and (max-width: 550px) {
+	.creditCard {
+		max-width: 350px;
+	}
+	.creditCard > div {
+		height: 222px;
+	}
+	.numberCard {
+		font-size: 20px;
+	}
+	.contentData2 {
+		margin-top: 15px;
+	}
+
+	.nameCard,
+	.expirationDate {
+		font-size: 14px;
+	}
+	.ccvNumber {
+		margin-top: 50px;
+		margin-right: 20px;
+	}
+	.cardForm {
+		padding-left: 2%;
+		padding-right: 2%;
+	}
+	.cardForm label {
+		font-size: 13px;
+	}
+
+	.cardForm input,
+	.cardForm select {
+		font-size: 15px;
+		height: 27px;
+	}
+	.boxNumbers {
+		width: 23%;
+	}
+	/* .cardForm .expiration {
+		width: 40%;
+	} */
+	.contentSubmit {
+		height: 35px;
+	}
+	.cardForm .submitButton {
+		height: 35px;
+	}
+	.contentTable {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.Table {
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+	.rowTable {
+		height: 30px;
+	}
+	.titleTable {
+		padding-left: 10px;
+		font-size: 15px;
+	}
+	.colTable {
+		height: 25px;
+		font-size: 10px;
+		padding: 5px;
+	}
+}
+
+@media only screen and (max-width: 400px) {
+	.contentCard {
+		padding: 20px 10px;
+	}
+	.creditCard {
+		max-width: 250px;
+	}
+	.creditCard > div {
+		height: 160px;
+	}
+	.numberCard {
+		font-size: 17px;
+	}
+	.contentData2 {
+		margin-top: 12px;
+	}
+
+	.nameCard,
+	.expirationDate {
+		font-size: 10px;
+	}
+	.ccvNumber {
+		margin-top: 40px;
+		margin-right: 15px;
+	}
+
+	.data {
+		margin-left: 3%;
+		margin-right: 3%;
+	}
 }
