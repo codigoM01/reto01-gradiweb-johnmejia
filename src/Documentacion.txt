@@ -1,0 +1,15 @@
+DOCUMENTACION PRUEBA INGRESO A GRADIWEB
+
+Aplicación web construida en ReactJs. 
+Desplegada en la dirección https://reto.pruebas.com.co
+Repositorio: https://github.com/codigoM01/reto01-gradiweb-johnmejia
+
+Diseño e intracción para el usuario con manejadores de error, validaciones y alertas.
+En general se cumple con los 8 objetivos del Reto Técnico.
+
+El archivo principal de Rreact es App.js
+Los estilos de CSS están en: App.CSS
+En el archivo TableCard.Js se encuentra el cóidigo para mostrar la tabla solicitada.
+En la carpeta assets se encuentran las fuentes, imáfenes y la carpeta de utilidades (utils) donde va al archivo actions.js para guardar funciones 
+
+

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import { encriptar } from "./assets/utils/actions";
 import { TableCard } from "./TableCard";
 
 function App() {
@@ -102,6 +103,10 @@ function App() {
 			);
 			return;
 		}
+
+		const encriptedCvv = encriptar(form.ccvNumber);
+		form.ccvNumber = encriptedCvv;
+
 		cardList.push(form);
 		showFront();
 		setVisibleButton(false);
@@ -121,27 +126,59 @@ function App() {
 						<div className="frontCard">
 							<div className="data">
 								<div className="dataNumbers">
-									<p className="numberCard">{form.cardNumber01}</p>
-									<p className="numberCard">{form.cardNumber02}</p>
-									<p className="numberCard">{form.cardNumber03}</p>
-									<p className="numberCard">{form.cardNumber04}</p>
+									{form.cardNumber01 === "" ? (
+										<p className="numberCard">0000</p>
+									) : (
+										<p className="numberCard">{form.cardNumber01}</p>
+									)}
+									{form.cardNumber02 === "" ? (
+										<p className="numberCard">0000</p>
+									) : (
+										<p className="numberCard">{form.cardNumber02}</p>
+									)}
+									{form.cardNumber03 === "" ? (
+										<p className="numberCard">0000</p>
+									) : (
+										<p className="numberCard">{form.cardNumber03}</p>
+									)}
+									{form.cardNumber04 === "" ? (
+										<p className="numberCard">0000</p>
+									) : (
+										<p className="numberCard">{form.cardNumber04}</p>
+									)}
 								</div>
 								<div className="contentData2">
-									<p className="nameCard">{form.cardName}</p>
+									{form.cardName === "" ? (
+										<p class="nameCard">JOHN CARLOS MEJIA</p>
+									) : (
+										<p className="nameCard">{form.cardName}</p>
+									)}
 									<p className="expirationDate">
-										<span className="monthExpirate">
-											{form.cardExpirationMonth}
-										</span>
+										{form.cardExpirationMonth === "" ? (
+											<span className="monthExpirate">00</span>
+										) : (
+											<span className="monthExpirate">
+												{form.cardExpirationMonth}
+											</span>
+										)}
 										/
-										<span className="yearExpirate">
-											{form.cardExpirationYear}
-										</span>
+										{form.cardExpirationYear === "" ? (
+											<span className="yearExpirate">00</span>
+										) : (
+											<span className="yearExpirate">
+												{form.cardExpirationYear}
+											</span>
+										)}
 									</p>
 								</div>
 							</div>
 						</div>
 						<div className="backCard">
-							<p className="ccvNumber">{form.ccvNumber}</p>
+							{form.ccvNumber === "" ? (
+								<p className="ccvNumber">000</p>
+							) : (
+								<p className="ccvNumber">{form.ccvNumber}</p>
+							)}
 						</div>
 					</div>
 				</div>
